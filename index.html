@@ -9,6 +9,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon-192.png">
   <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="preload" href="./lunasui_header.png" as="image">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -25,33 +26,9 @@
   <main id="app">
     <section id="homeView" class="view active" aria-labelledby="homeTitle">
       <div class="hero">
-        <div class="owl-wrap" aria-hidden="true">
-          <svg class="owl" viewBox="0 0 320 250" role="img">
-            <defs>
-              <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#342a48"/>
-                <stop offset="1" stop-color="#171526"/>
-              </linearGradient>
-              <radialGradient id="moonGlow">
-                <stop offset="0" stop-color="#fff7cf" stop-opacity=".95"/>
-                <stop offset="1" stop-color="#d8b85d" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <circle cx="160" cy="118" r="112" fill="url(#moonGlow)"/>
-            <path d="M83 82 L112 42 L135 76 Q160 63 185 76 L208 42 L237 82 Q248 104 238 139 Q231 178 199 199 Q181 215 160 216 Q139 215 121 199 Q89 178 82 139 Q72 104 83 82Z" fill="url(#robe)" stroke="#c9a84d" stroke-width="4"/>
-            <circle cx="125" cy="112" r="34" fill="#f5ecd1" stroke="#c9a84d" stroke-width="3"/>
-            <circle cx="195" cy="112" r="34" fill="#f5ecd1" stroke="#c9a84d" stroke-width="3"/>
-            <circle cx="125" cy="112" r="12" fill="#211d2d"/>
-            <circle cx="195" cy="112" r="12" fill="#211d2d"/>
-            <circle cx="121" cy="108" r="4" fill="#fff"/>
-            <circle cx="191" cy="108" r="4" fill="#fff"/>
-            <path d="M148 133 L160 145 L172 133 L160 126Z" fill="#d9a84c"/>
-            <path d="M111 163 Q160 194 209 163" fill="none" stroke="#c9a84d" stroke-width="4" stroke-linecap="round"/>
-            <path d="M112 199 Q160 229 208 199 L217 235 L103 235Z" fill="#f4eee4" stroke="#c9a84d" stroke-width="3"/>
-            <path d="M129 202 L160 219 L191 202" fill="none" stroke="#7a5f90" stroke-width="3"/>
-          </svg>
+        <div class="owl-wrap">
+          <img class="lunasui-character" src="./lunasui_header.png" alt="紫色のマントをまとったルナスイ">
         </div>
-
         <p class="eyebrow">一枚ひらくたび、一冊が育つ。</p>
         <h1 id="homeTitle">ルナスイのことば帳</h1>
         <p class="subtitle">禅のことばと、心を整える一冊</p>

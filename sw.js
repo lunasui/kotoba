@@ -1,5 +1,5 @@
 
-const CACHE = "lunasui-kotoba-v1.0.0";
+const CACHE = "lunasui-kotoba-v1.1.0";
 const ASSETS = [
   "./",
   "./index.html",
@@ -8,7 +8,8 @@ const ASSETS = [
   "./cards.js",
   "./manifest.webmanifest",
   "./icon-192.png",
-  "./icon-512.png"
+  "./icon-512.png",
+  "./lunasui_header.png"
 ];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
