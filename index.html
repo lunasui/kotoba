@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4eee4">
+  <meta name="description" content="禅のことばと、心を整える一冊。365枚のことばを一枚ずつひらき、自分だけの一冊を育てます。">
+  <title>ルナスイのことば帳</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand-button" data-go="home" aria-label="ホームへ">
+      <span class="moon-mark">☾</span>
+      <span>ルナスイのことば帳</span>
+    </button>
+    <button id="soundToggle" class="icon-button" aria-label="音の設定" title="音の設定">♪</button>
+  </header>
+
+  <main id="app">
+    <section id="homeView" class="view active" aria-labelledby="homeTitle">
+      <div class="hero">
+        <div class="owl-wrap" aria-hidden="true">
+          <svg class="owl" viewBox="0 0 320 250" role="img">
+            <defs>
+              <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#342a48"/>
+                <stop offset="1" stop-color="#171526"/>
+              </linearGradient>
+              <radialGradient id="moonGlow">
+                <stop offset="0" stop-color="#fff7cf" stop-opacity=".95"/>
+                <stop offset="1" stop-color="#d8b85d" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="160" cy="118" r="112" fill="url(#moonGlow)"/>
+            <path d="M83 82 L112 42 L135 76 Q160 63 185 76 L208 42 L237 82 Q248 104 238 139 Q231 178 199 199 Q181 215 160 216 Q139 215 121 199 Q89 178 82 139 Q72 104 83 82Z" fill="url(#robe)" stroke="#c9a84d" stroke-width="4"/>
+            <circle cx="125" cy="112" r="34" fill="#f5ecd1" stroke="#c9a84d" stroke-width="3"/>
+            <circle cx="195" cy="112" r="34" fill="#f5ecd1" stroke="#c9a84d" stroke-width="3"/>
+            <circle cx="125" cy="112" r="12" fill="#211d2d"/>
+            <circle cx="195" cy="112" r="12" fill="#211d2d"/>
+            <circle cx="121" cy="108" r="4" fill="#fff"/>
+            <circle cx="191" cy="108" r="4" fill="#fff"/>
+            <path d="M148 133 L160 145 L172 133 L160 126Z" fill="#d9a84c"/>
+            <path d="M111 163 Q160 194 209 163" fill="none" stroke="#c9a84d" stroke-width="4" stroke-linecap="round"/>
+            <path d="M112 199 Q160 229 208 199 L217 235 L103 235Z" fill="#f4eee4" stroke="#c9a84d" stroke-width="3"/>
+            <path d="M129 202 L160 219 L191 202" fill="none" stroke="#7a5f90" stroke-width="3"/>
+          </svg>
+        </div>
+
+        <p class="eyebrow">一枚ひらくたび、一冊が育つ。</p>
+        <h1 id="homeTitle">ルナスイのことば帳</h1>
+        <p class="subtitle">禅のことばと、心を整える一冊</p>
+
+        <button id="drawButton" class="primary-button">
+          <span class="button-moon">☾</span>
+          一枚ひらく
+        </button>
+
+        <p id="remainingText" class="remaining" aria-live="polite"></p>
+      </div>
+
+      <div class="home-menu">
+        <button class="menu-card" data-go="binder">
+          <span class="menu-icon">▦</span>
+          <span><strong>ことば帳</strong><small>ひらいたカードを眺める</small></span>
+        </button>
+        <button class="menu-card" data-go="favorites">
+          <span class="menu-icon">♡</span>
+          <span><strong>お気に入り</strong><small>心に残ったことば</small></span>
+        </button>
+      </div>
+    </section>
+
+    <section id="cardView" class="view card-view" aria-labelledby="cardTitle">
+      <button class="back-button" data-go="home">← 表紙へ戻る</button>
+      <div class="card-stage">
+        <article id="messageCard" class="message-card">
+          <div class="card-corner">☾</div>
+          <p id="cardNo" class="card-no"></p>
+          <h2 id="cardTitle"></h2>
+          <div class="ornament">◆</div>
+          <p id="cardMessage" class="card-message"></p>
+          <div class="zen-box">
+            <p id="cardZen" class="zen-word"></p>
+            <p id="cardMeaning" class="zen-meaning"></p>
+          </div>
+          <button id="favoriteButton" class="favorite-button" aria-pressed="false">
+            <span>♡</span> お気に入りに入れる
+          </button>
+        </article>
+      </div>
+      <p class="closing">また必要なときに、この一冊をひらいてね。</p>
+    </section>
+
+    <section id="binderView" class="view" aria-labelledby="binderTitle">
+      <div class="section-head">
+        <button class="back-button" data-go="home">← 表紙へ戻る</button>
+        <div>
+          <p class="eyebrow">あなたが育てた一冊</p>
+          <h2 id="binderTitle">ことば帳</h2>
+        </div>
+      </div>
+
+      <div class="binder-shell">
+        <div class="binder-spine" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="binder-page">
+          <div id="binderGrid" class="pocket-grid"></div>
+          <div class="page-controls">
+            <button id="prevPage" class="page-button">←</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage" class="page-button">→</button>
+          </div>
+        </div>
+      </div>
+      <p id="binderEmpty" class="empty-state">まだカードはありません。<br>表紙から一枚ひらいてみてね。</p>
+    </section>
+
+    <section id="favoritesView" class="view" aria-labelledby="favoritesTitle">
+      <div class="section-head">
+        <button class="back-button" data-go="home">← 表紙へ戻る</button>
+        <div>
+          <p class="eyebrow">何度でも会いたいことば</p>
+          <h2 id="favoritesTitle">お気に入り</h2>
+        </div>
+      </div>
+      <div id="favoritesGrid" class="favorites-grid"></div>
+      <p id="favoritesEmpty" class="empty-state">お気に入りはまだありません。</p>
+    </section>
+
+    <section id="completeView" class="view complete-view" aria-labelledby="completeTitle">
+      <div class="complete-moon">☾</div>
+      <p class="eyebrow">365枚、すべてのことばが揃いました</p>
+      <h2 id="completeTitle">一冊が、完成しました。</h2>
+      <p>ここまでひらいたことばは、ことば帳に残っています。</p>
+      <button id="restartButton" class="secondary-button">新しい巡りを始める</button>
+      <button class="text-button" data-go="binder">完成したことば帳を見る</button>
+    </section>
+  </main>
+
+  <dialog id="cardDialog" class="card-dialog">
+    <button id="dialogClose" class="dialog-close" aria-label="閉じる">×</button>
+    <article class="mini-detail">
+      <p id="dialogNo" class="card-no"></p>
+      <h3 id="dialogTitle"></h3>
+      <p id="dialogMessage"></p>
+      <div class="zen-box">
+        <p id="dialogZen" class="zen-word"></p>
+        <p id="dialogMeaning" class="zen-meaning"></p>
+      </div>
+    </article>
+  </dialog>
+
+  <script src="./cards.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
