@@ -178,7 +178,7 @@
     $("dialogNo").textContent = `NO.${card.no}`;
     $("dialogTitle").textContent = card.title;
     $("dialogMessage").textContent = card.message;
-    $("dialogZen").textContent = card.zen ? `ZEN｜${card.zen}` : "";
+    $("dialogZen").textContent = card.zen ? `禅｜${card.zen}` : "";
     $("dialogMeaning").textContent = card.meaning;
     $("dialogMeaning").style.display = card.meaning ? "block" : "none";
     $("cardDialog").showModal();
