@@ -1,5 +1,5 @@
 
-const CACHE = "lunasui-kotoba-final-v1";
+const CACHE = "lunasui-kotoba-final-v2";
 const ASSETS = [
   "./",
   "./index.html",
