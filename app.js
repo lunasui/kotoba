@@ -101,7 +101,7 @@
     $("cardNo").textContent = `NO.${card.no}`;
     $("cardTitle").textContent = card.title;
     $("cardMessage").textContent = card.message;
-    $("cardZen").textContent = card.zen ? `ZEN｜${card.zen}` : "";
+    $("cardZen").textContent = card.zen ? `禅｜${card.zen}` : "";
     $("cardMeaning").textContent = card.meaning;
     $("cardMeaning").style.display = card.meaning ? "block" : "none";
     updateFavoriteButton();
